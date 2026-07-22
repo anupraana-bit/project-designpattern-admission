@@ -13,32 +13,32 @@ class DecoratorTest {
 
     @Test
     void verifyBasicReportGeneration() {
-        StudentReport report = new BasicReport();
+        StudentReport report = new BasicReport("Ram");
         assertNotNull(report.generate());
         assertTrue(report.generate().contains("Student Report"));
     }
 
     @Test
     void verifyPdfFeatureWorks() {
-        StudentReport report = new PdfDecorator(new BasicReport());
+        StudentReport report = new PdfDecorator(new BasicReport("Ram"));
         assertTrue(report.generate().contains("PDF Format"));
     }
 
     @Test
     void verifyWatermarkFeatureWorks() {
-        StudentReport report = new WatermarkDecorator(new BasicReport());
+        StudentReport report = new WatermarkDecorator(new BasicReport("Ram"));
         assertTrue(report.generate().contains("Watermark Added"));
     }
 
     @Test
     void verifySignatureFeatureWorks() {
-        StudentReport report = new SignatureDecorator(new BasicReport());
+        StudentReport report = new SignatureDecorator(new BasicReport("Ram"));
         assertTrue(report.generate().contains("Signed"));
     }
 
     @Test
     void verifyDecoratedReportIsNotNull() {
-        StudentReport report = new SignatureDecorator(new WatermarkDecorator(new PdfDecorator(new BasicReport())));
+        StudentReport report = new SignatureDecorator(new WatermarkDecorator(new PdfDecorator(new BasicReport("Ram"))));
         assertNotNull(report);
     }
 }
