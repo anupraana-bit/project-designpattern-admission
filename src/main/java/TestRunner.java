@@ -18,6 +18,10 @@ public class TestRunner {
             .selectors(DiscoverySelectors.selectClass("practical5.FacadeTest"))
             .selectors(DiscoverySelectors.selectClass("practical6.ProxyTest"))
             .selectors(DiscoverySelectors.selectClass("practical7.DecoratorTest"))
+            .selectors(DiscoverySelectors.selectClass("practical8.PaymentTest"))
+            .selectors(DiscoverySelectors.selectClass("practical9.ObserverTest"))
+            .selectors(DiscoverySelectors.selectClass("practical10.CommandTest"))
+            .selectors(DiscoverySelectors.selectClass("practical11.StateTest"))
             .build();
 
         Launcher launcher = LauncherFactory.create();
